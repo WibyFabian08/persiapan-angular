@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Hero } from '../interface/hero';
+import { HeroService } from '../services/hero-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  heroes: Hero[] = []
+  isLoadingFetch: boolean = true
 
-  constructor() { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
+    this.getHeroes()
+  }
+
+  getHeroes = () => {
+    this.isLoadingFetch = true
+    this.heroService.getAll()
+      .subscribe({
+        next: (data) => {
+          let buffer = data.slice(0, 6)
+          this.heroes = buffer
+          this.isLoadingFetch = false
+        },
+        error: (err) => {
+          console.log(err)
+          this.isLoadingFetch = false
+        }
+      })
   }
 
 }

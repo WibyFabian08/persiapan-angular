@@ -1,9 +1,20 @@
 import { Injectable } from '@angular/core';
 
+import { Observable} from 'rxjs';
+import { Hero } from '../interface/hero';
+
+import { HttpClient } from '@angular/common/http';
+
+const baseUrl = "http://localhost:3000"
+
 @Injectable({
   providedIn: 'root'
 })
-export class HeroServiceService {
+export class HeroService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getAll(): Observable<Hero[]> {
+    return this.http.get<Hero[]>(`${baseUrl}/heroes`)
+  }
 }
