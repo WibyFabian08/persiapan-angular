@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
 import { AddHeroComponent } from './add-hero/add-hero.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailHeroComponent } from './detail-hero/detail-hero.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     NavbarComponent,
     SearchComponent,
-    AddHeroComponent
+    AddHeroComponent,
+    DetailHeroComponent
   ],
   imports: [
     BrowserModule,

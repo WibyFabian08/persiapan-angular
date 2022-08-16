@@ -7,6 +7,8 @@
     >
       <div class="lg:w-2/6 md:w-1/2 w-full" *ngFor="let hero of heroes">
         <div
+          routerLink="/detail/{{ hero.id }}"
+          style="cursor: pointer;"
           class="mx-1 bg-gray-100 mb-5 p-5 shadow-lg rounded-md hover:bg-gray-200 transition-all duration-200 ease-in-out"
         >
           <h5 class="text-2xl">{{ hero.name }}</h5>
