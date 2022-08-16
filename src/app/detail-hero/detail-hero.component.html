@@ -3,12 +3,11 @@
     <h1 class="text-2xl text-center">Detail Hero</h1>
     <div
       class="bg-white rounded-lg shadow-lg flex flex-col w-full md:w-1/2 p-5"
+      *ngIf="!isLoadingFetch"
     >
-      <h2 class="text-xl">Hero Name</h2>
+      <h2 class="text-xl">{{ hero?.name }}</h2>
       <p class="mt-2">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, ducimus
-        at ullam commodi nisi doloremque doloribus reprehenderit labore ut
-        facilis blanditiis. Atque at ducimus magni dolore, a quos hic! Minima?
+        {{ hero?.description }}
       </p>
 
       <div class="mt-5">
@@ -19,6 +18,10 @@
           Back
         </button>
       </div>
+    </div>
+
+    <div class="flex justify-center items-center" *ngIf="isLoadingFetch">
+      <p class="text-center">Loading...</p>
     </div>
   </div>
 </div>
