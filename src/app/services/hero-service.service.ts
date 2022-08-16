@@ -21,4 +21,8 @@ export class HeroService {
   getById(id: number): Observable<Hero> {
     return this.http.get<Hero>(`${baseUrl}/heroes/${id}`)
   }
+
+  create(data: any): Observable<Hero> {
+    return this.http.post<Hero>(`${baseUrl}/heroes`, data)
+  }
 }

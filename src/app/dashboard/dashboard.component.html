@@ -5,16 +5,26 @@
       class="flex justify-start items-center flex-wrap flex-row"
       *ngIf="!isLoadingFetch"
     >
-      <div class="lg:w-2/6 md:w-1/2 w-full" *ngFor="let hero of heroes">
+      <div
+        class="lg:w-2/6 md:w-1/2 w-full relative"
+        *ngFor="let hero of heroes"
+      >
         <div
           routerLink="/detail/{{ hero.id }}"
-          style="cursor: pointer;"
+          style="cursor: pointer"
           class="mx-1 bg-gray-100 mb-5 p-5 shadow-lg rounded-md hover:bg-gray-200 transition-all duration-200 ease-in-out"
         >
           <h5 class="text-2xl">{{ hero.name }}</h5>
           <p class="text-sm text-justify mt-2">
             {{ hero.description }}
           </p>
+        </div>
+
+        <div
+          class="absolute top-0 right-0 bg-red-300 rounded-full flex justify-center items-center"
+          style="height: 20px; width: 20px; cursor: pointer;"
+        >
+          <span class="text-sm text-white mb-1"> x </span>
         </div>
       </div>
     </div>

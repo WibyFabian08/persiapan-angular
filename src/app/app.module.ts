@@ -9,6 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { AddHeroComponent } from './add-hero/add-hero.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailHeroComponent } from './detail-hero/detail-hero.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DetailHeroComponent } from './detail-hero/detail-hero.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

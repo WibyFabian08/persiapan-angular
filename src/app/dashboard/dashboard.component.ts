@@ -22,8 +22,8 @@ export class DashboardComponent implements OnInit {
     this.heroService.getAll()
       .subscribe({
         next: (data) => {
-          let buffer = data.slice(0, 6)
-          this.heroes = buffer
+          // let buffer = data.slice(0, 6)
+          this.heroes = data
           this.isLoadingFetch = false
         },
         error: (err) => {
