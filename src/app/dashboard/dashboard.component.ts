@@ -9,7 +9,8 @@ import { HeroService } from '../services/hero-service.service';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = []
-  isLoadingFetch: boolean = true
+  isLoadingFetch: boolean = false
+  isLoadingDelete: boolean = false
 
   constructor(private heroService: HeroService) { }
 
@@ -29,6 +30,23 @@ export class DashboardComponent implements OnInit {
         error: (err) => {
           console.log(err)
           this.isLoadingFetch = false
+        }
+      })
+  }
+
+  deleteHero = (id: any) => {
+    this.isLoadingDelete = true
+    this.heroService.deleteById(id)
+      .subscribe({
+        next: (data) => {
+          alert("Hapus Data Berhasil")
+          this.getHeroes()
+          this.isLoadingDelete = false
+        },
+        error: (err) => {
+          console.log(err)
+          this.getHeroes()
+          this.isLoadingDelete = false
         }
       })
   }

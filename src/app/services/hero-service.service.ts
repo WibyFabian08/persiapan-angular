@@ -29,4 +29,8 @@ export class HeroService {
   update(id : number, data: any): Observable<Hero> {
     return this.http.put<Hero>(`${baseUrl}/heroes/${id}`, data)
   }
+
+  deleteById(id: number): Observable<Hero> {
+    return this.http.delete<Hero>(`${baseUrl}/heroes/${id}`)
+  }
 }

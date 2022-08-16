@@ -10,7 +10,6 @@
         *ngFor="let hero of heroes"
       >
         <div
-          routerLink="/detail/{{ hero.id }}"
           class="mx-1 bg-gray-100 mb-5 p-5 shadow-lg rounded-md hover:bg-gray-200 transition-all duration-200 ease-in-out"
         >
           <h5 class="text-2xl">{{ hero.name }}</h5>
@@ -34,6 +33,7 @@
         </div>
 
         <div
+          (click)="deleteHero(hero.id)"
           class="absolute top-0 right-0 bg-red-300 rounded-full flex justify-center items-center"
           style="height: 20px; width: 20px; cursor: pointer"
         >
