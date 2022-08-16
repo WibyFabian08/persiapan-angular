@@ -29,6 +29,7 @@ export class AddHeroComponent implements OnInit {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
 
     if (id) {
+      this.title = "Edit"
       this.heroId = id
       if (this.heroId !== NaN) {
         this.heroService.getById(id)
@@ -44,7 +45,7 @@ export class AddHeroComponent implements OnInit {
           })
       }
     } else {
-      this.title = "Edit"
+      this.title = "Add"
     }
   }
 
