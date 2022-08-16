@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Observable, Subject } from 'rxjs';
-
-import {
-   debounceTime, distinctUntilChanged, switchMap
- } from 'rxjs/operators';
-
- import { Hero } from '../interface/hero';
- import { HeroService } from '../services/hero-service.service';
+import { Hero } from '../interface/hero';
+import { HeroService } from '../services/hero-service.service';
 
 @Component({
   selector: 'app-search',
@@ -15,32 +8,48 @@ import {
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  heroes: Hero[] = []
+  searchData: Hero[] = []
 
-  heroes$!: Observable<Hero[]>;
-  private searchTerms = new Subject<string>();
-
-  constructor(private heroService: HeroService) {}
-
-  // Push a search term into the observable stream.
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
-
-  change(event: any) {
-    console.log(event.target.files[0])
-  }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
-    // this.heroes$ = this.searchTerms.pipe(
-    //   // wait 300ms after each keystroke before considering the term
-    //   debounceTime(300),
+    this.getHeroes()
+  }
 
-    //   // ignore new term if same as previous term
-    //   distinctUntilChanged(),
+  getSearch = (event: any) => {
+    this.heroes.forEach((data: any) => {
+      if(event.target.value.length > 3) {
+        if (data.name.indexOf(event.target.value) != -1) {
+          this.searchData = []
+          setTimeout(() => {
+            this.searchData.push(data)
+          }, 1000)
+        } else {
+          this.searchData = []
+        }
+      } else {
+        this.searchData = []
+      }
+    })
+  }
 
-    //   // switch to new search observable each time the term changes
-    //   switchMap((term: string) => this.heroService.searchHeroes(term)),
-    // );
+  getHeroes = () => {
+    this.heroService.getAll()
+      .subscribe({
+        next: (data) => {
+          let buffer: Hero[] = []
+          data.map((data) => {
+            data.name = data.name.toLowerCase()
+            buffer.push(data)
+          })
+
+          this.heroes = buffer
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
   }
 
 }

@@ -23,25 +23,28 @@ export class AddHeroComponent implements OnInit {
     private location: Location,
     private heroService: HeroService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
-    this.heroId = id
-    this.title = "Edit"
 
-    if(this.heroId) {
-      this.heroService.getById(id)
-      .subscribe({
-        next: (data) => {
-          this.hero = data
-          this.isLoading = false
-        },
-        error: (err) => {
-          console.log(err)
-          this.isLoading = false
-        }
-      })
+    if (id) {
+      this.heroId = id
+      if (this.heroId !== NaN) {
+        this.heroService.getById(id)
+          .subscribe({
+            next: (data) => {
+              this.hero = data
+              this.isLoading = false
+            },
+            error: (err) => {
+              console.log(err)
+              this.isLoading = false
+            }
+          })
+      }
+    } else {
+      this.title = "Edit"
     }
   }
 
@@ -52,8 +55,8 @@ export class AddHeroComponent implements OnInit {
   handleAdd = () => {
     this.isLoading = true;
 
-    if(this.heroId) {
-      this.heroService.update(this.heroId ,this.hero).subscribe({
+    if (this.heroId) {
+      this.heroService.update(this.heroId, this.hero).subscribe({
         next: (data) => {
           this.goBack();
           this.isLoading = false;

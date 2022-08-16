@@ -2,18 +2,18 @@
   <input
     type="text"
     placeholder="Seach Hero..."
+    (keyup)="getSearch($event)"
     class="px-4 py-2 rounded-md focus:border focus:outline-none active:border-none"
   />
 
 
 
-  <!-- <div
+  <div
+    *ngIf="searchData.length > 0"
     class="absolute -bottom-26 mt-5 shadow-lg bg-gray-200 z-10 w-full rounded-md"
   >
-    <ul class="w-full p-2">
-      <li class="mb-2 p-2 rounded-md bg-white">1</li>
-      <li class="mb-2 p-2 rounded-md bg-white">1</li>
-      <li class="mb-2 p-2 rounded-md bg-white">1</li>
+    <ul class="w-full p-2" *ngFor="let data of searchData">
+      <li class="mb-2 p-2 rounded-md bg-white">{{data.name}}</li>
     </ul>
-  </div> -->
+  </div>
 </div>
