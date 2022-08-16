@@ -1,6 +1,6 @@
 <div class="container mx-auto mt-10">
   <div class="flex justify-center items-center flex-col">
-    <h1 class="text-2xl text-center">{{title}} Hero</h1>
+    <h1 class="text-2xl text-center mb-5">{{title}} Hero</h1>
     <div
       class="bg-white rounded-lg shadow-lg flex flex-col w-full md:w-1/2 p-5"
     >
@@ -19,6 +19,7 @@
           type="text"
           [(ngModel)]="hero.description"
           placeholder="Deskripsi"
+          rows="5"
           class="px-4 py-2 focus:outline-none border border-gray-400 rounded-md"
         ></textarea>
       </div>
