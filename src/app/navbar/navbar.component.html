@@ -1,1 +1,29 @@
-<p>navbar works!</p>
+<nav class="bg-gray-800">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="relative flex items-center justify-between h-16">
+      <div
+        class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
+      >
+        <div class="hidden sm:block sm:ml-6" *ngFor="let menu of menus">
+          <div class="flex space-x-4">
+            <a
+              routerLink="{{ menu.path }}"
+              class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+              >{{ menu.name }}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sm:hidden" id="mobile-menu">
+    <div *ngFor="let menu of menus" class="px-2 pt-2 pb-3 space-y-1">
+      <a
+        routerLink="{{ menu.path }}"
+        class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+        >{{ menu.name }}</a
+      >
+    </div>
+  </div>
+</nav>
