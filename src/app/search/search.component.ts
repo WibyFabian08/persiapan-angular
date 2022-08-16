@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Hero } from '../interface/hero';
 import { HeroService } from '../services/hero-service.service';
 
@@ -10,8 +11,9 @@ import { HeroService } from '../services/hero-service.service';
 export class SearchComponent implements OnInit {
   heroes: Hero[] = []
   searchData: Hero[] = []
+  input: string = ""
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private router: Router) { }
 
   ngOnInit(): void {
     this.getHeroes()
@@ -19,12 +21,12 @@ export class SearchComponent implements OnInit {
 
   getSearch = (event: any) => {
     this.heroes.forEach((data: any) => {
-      if(event.target.value.length > 3) {
+      if (event.target.value.length > 3) {
         if (data.name.indexOf(event.target.value) != -1) {
           this.searchData = []
           setTimeout(() => {
             this.searchData.push(data)
-          }, 1000)
+          }, 300)
         } else {
           this.searchData = []
         }
@@ -50,6 +52,12 @@ export class SearchComponent implements OnInit {
           console.log(err)
         }
       })
+  }
+
+  handleClick = (id: any) => {
+    this.searchData = []
+    this.input = ""
+    this.router.navigate([`detail/${id}`])
   }
 
 }
