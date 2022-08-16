@@ -1,1 +1,24 @@
-<p>detail-hero works!</p>
+<div class="container mx-auto mt-10">
+  <div class="flex justify-center items-center flex-col">
+    <h1 class="text-2xl text-center">Detail Hero</h1>
+    <div
+      class="bg-white rounded-lg shadow-lg flex flex-col w-full md:w-1/2 p-5"
+    >
+      <h2 class="text-xl">Hero Name</h2>
+      <p class="mt-2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, ducimus
+        at ullam commodi nisi doloremque doloribus reprehenderit labore ut
+        facilis blanditiis. Atque at ducimus magni dolore, a quos hic! Minima?
+      </p>
+
+      <div class="mt-5">
+        <button
+          (click)="goBack()"
+          class="text-white hover:bg-red-500 transition-all duration-300 bg-red-400 px-4 py-2 rounded-md"
+        >
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
