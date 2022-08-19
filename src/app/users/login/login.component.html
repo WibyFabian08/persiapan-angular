@@ -55,7 +55,7 @@
           type="submit"
           class="px-4 py-2 text-white transition-all duration-300 bg-blue-400 rounded-md hover:bg-blue-500"
         >
-          Login
+          {{isLoading ? "Loading..." : "Login"}}
         </button>
         <button
           routerLink="/users/register"

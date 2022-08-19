@@ -1,35 +1,57 @@
-<div class="container mx-auto mt-10" style="height: 100vh;">
+<div class="container mx-auto mt-10" style="height: 100vh">
   <div class="flex flex-col items-center justify-center">
-    <h1 class="mb-5 text-2xl text-center">{{title}} Hero</h1>
-    <div
+    <h1 class="mb-5 text-2xl text-center">{{ title }} Hero</h1>
+    <form
+      [formGroup]="heroForm"
+      (ngSubmit)="handleAdd()"
       class="flex flex-col w-full p-5 bg-white rounded-lg shadow-lg md:w-1/2"
     >
       <div class="flex flex-col mb-4">
         <label for="name" class="mb-2 text-xl">Nama</label>
         <input
           type="text"
-          placeholder="Nama"
-          [(ngModel)]="hero.name"
+          formControlName="name"
+          name="name"
+          id="name"
+          placeholder="Nama Hero"
           class="px-4 py-2 border border-gray-400 rounded-md focus:outline-none"
         />
+        <div
+          class="mt-2 ml-2"
+          *ngIf="
+            !heroForm.controls.name?.valid &&
+            (heroForm.controls.name?.dirty || heroForm.controls.name?.touched)
+          "
+        >
+          <p class="text-sm text-red-400">Minimal 5 Karakter!</p>
+        </div>
       </div>
       <div class="flex flex-col">
         <label for="deskripsi" class="mb-2 text-xl">Deskripsi</label>
         <textarea
           type="text"
-          [(ngModel)]="hero.description"
+          formControlName="description"
+          name="description"
+          id="description"
           placeholder="Deskripsi"
           rows="5"
           class="px-4 py-2 border border-gray-400 rounded-md focus:outline-none"
         ></textarea>
+        <div
+          class="mt-2 ml-2"
+          *ngIf="
+            !heroForm.controls.description?.valid &&
+            (heroForm.controls.description?.dirty || heroForm.controls.description?.touched)
+          "
+        >
+          <p class="text-sm text-red-400">Minimal 5 Karakter!</p>
+        </div>
       </div>
 
       <div class="mt-5">
-        
         <button
-          *ngIf="hero.name.length > 1 && hero.description.length > 1 "
-          [disabled]="isLoading"
-          (click)="handleAdd()"
+          [disabled]="!heroForm.valid"
+          type="submit"
           class="px-4 py-2 text-white transition-all duration-300 bg-blue-400 rounded-md hover:bg-blue-500"
         >
           {{ isLoading ? "Loading..." : "Save" }}
@@ -41,6 +63,6 @@
           Back
         </button>
       </div>
-    </div>
+    </form>
   </div>
 </div>

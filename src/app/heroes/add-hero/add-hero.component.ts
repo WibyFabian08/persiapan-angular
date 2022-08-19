@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Hero } from '../interfaces/hero';
 import { HeroService } from '../services/hero-service.service';
@@ -10,6 +11,10 @@ import { HeroService } from '../services/hero-service.service';
   styleUrls: ['./add-hero.component.css'],
 })
 export class AddHeroComponent implements OnInit {
+  heroForm = new FormGroup({
+    name: new FormControl("", [Validators.required, Validators.minLength(5)]),
+    description: new FormControl("", [Validators.required, Validators.minLength(5)]),
+  })
   hero: Hero = {
     id: undefined,
     name: '',
@@ -34,8 +39,11 @@ export class AddHeroComponent implements OnInit {
       if (this.heroId !== NaN) {
         this.heroService.getById(id)
           .subscribe({
-            next: (data) => {
-              this.hero = data
+            next: (data: any) => {
+              this.heroForm.patchValue({
+                name: data.name,
+                description: data.description
+              })
               this.isLoading = false
             },
             error: (err) => {
@@ -57,7 +65,7 @@ export class AddHeroComponent implements OnInit {
     this.isLoading = true;
 
     if (this.heroId) {
-      this.heroService.update(this.heroId, this.hero).subscribe({
+      this.heroService.update(this.heroId, this.heroForm.value).subscribe({
         next: (data) => {
           this.goBack();
           this.isLoading = false;
@@ -68,7 +76,7 @@ export class AddHeroComponent implements OnInit {
         },
       });
     } else {
-      this.heroService.create(this.hero).subscribe({
+      this.heroService.create(this.heroForm.value).subscribe({
         next: (data) => {
           this.goBack();
           this.isLoading = false;

@@ -76,7 +76,7 @@
           [disabled]="!registerForm.valid"
           class="px-4 py-2 text-white transition-all duration-300 bg-blue-400 rounded-md hover:bg-blue-500"
         >
-          Register
+          {{isLoading ? "Loading..." : "Register"}}
         </button>
         <button
           routerLink="/users/login"
