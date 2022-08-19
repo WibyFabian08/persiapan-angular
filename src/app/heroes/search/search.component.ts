@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Hero } from '../interface/hero';
 import { HeroService } from '../services/hero-service.service';
+import { Hero } from '../interfaces/hero';
 
 @Component({
   selector: 'app-search',
@@ -57,7 +57,7 @@ export class SearchComponent implements OnInit {
   handleClick = (id: any) => {
     this.searchData = []
     this.input = ""
-    this.router.navigate([`detail/${id}`])
+    this.router.navigate([`heroes/detail/${id}`])
   }
 
 }

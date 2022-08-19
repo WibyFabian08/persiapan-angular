@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Observable} from 'rxjs';
-import { Hero } from '../interface/hero';
-
+import { Hero } from '../interfaces/hero';
 import { HttpClient } from '@angular/common/http';
 
 const baseUrl = "http://localhost:3000"

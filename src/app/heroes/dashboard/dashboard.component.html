@@ -1,0 +1,51 @@
+<div class="container mx-auto">
+  <h1 class="my-5 text-2xl text-center">Dashboard Page</h1>
+  <ng-container *ngIf="heroes.length > 0">
+    <div
+      class="flex flex-row flex-wrap items-center justify-start"
+      *ngIf="!isLoadingFetch"
+    >
+      <div
+        class="relative w-full lg:w-2/6 md:w-1/2"
+        *ngFor="let hero of heroes"
+      >
+        <div
+          class="p-5 mx-1 mb-5 transition-all duration-200 ease-in-out bg-white rounded-md shadow-lg hover:bg-gray-100"
+        >
+          <h5 class="text-2xl">{{ hero.name }}</h5>
+          <p class="mt-2 text-sm text-justify">
+            {{ hero.description }}
+          </p>
+
+          <div class="mt-5">
+            <button
+              routerLink="/heroes/edit/{{ hero.id }}"
+              class="px-4 py-2 text-white transition-all duration-300 bg-blue-400 rounded-md hover:bg-blue-500"
+            >
+              Edit
+            </button>
+            <button
+              routerLink="/heroes/detail/{{ hero.id }}"
+              class="px-4 py-2 ml-2 text-white transition-all duration-300 bg-green-400 rounded-md hover:bg-green-500"
+            >
+              Detail
+            </button>
+          </div>
+        </div>
+
+        <div
+          (click)="deleteHero(hero.id)"
+          class="absolute top-0 right-0 flex items-center justify-center bg-red-300 rounded-full"
+          style="height: 20px; width: 20px; cursor: pointer"
+        >
+          <span class="mb-1 text-sm text-white"> x </span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isLoadingFetch">
+    <div class="flex items-center justify-center w-full">
+      <h5 class="text-center text-gray-800">Loading..</h5>
+    </div>
+  </ng-container>
+</div>
