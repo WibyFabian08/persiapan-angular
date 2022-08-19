@@ -9,7 +9,6 @@ const baseUrl = "http://localhost:3000"
   providedIn: 'root'
 })
 export class UsersService {
-  isLogin: boolean = false
 
   constructor(private http: HttpClient) { }
 
@@ -18,8 +17,15 @@ export class UsersService {
   }
   
   login(email: any):Observable<User> {
-    this.isLogin = true
     return this.http.get<User>(`${baseUrl}/users?email=${email}`)
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('user');
+  }
+
+  isLoggedIn() {
+    return this.getToken() !== null;
   }
 
 }
