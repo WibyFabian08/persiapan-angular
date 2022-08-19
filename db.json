@@ -49,6 +49,18 @@
       "name": "Liverpool",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id libero eos mollitia tempore veritatis aliquid unde repudiandae minus asperiores blanditiis natus, sapiente sunt rerum voluptate eaque suscipit aperiam beatae atque?",
       "id": 21
+    },
+    {
+      "name": "Lorem",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quis enim doloribus fugit neque quibusdam quasi perspiciatis corporis aperiam mollitia non, odio tempora perferendis cupiditate illo. Eius soluta odit natus.",
+      "id": 22
+    }
+  ],
+  "users": [
+    {
+      "email": "",
+      "username": "",
+      "password": ""
     }
   ]
 }
