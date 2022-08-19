@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: "edit/:id",
     component: AddHeroComponent
+  },
+  {
+    path: "users",
+    loadChildren: () => import ("./users/users.module").then((module) => module.UsersModule)
   }
 ];
 
