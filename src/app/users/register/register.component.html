@@ -74,9 +74,13 @@
         <button
           type="submit"
           [disabled]="!registerForm.valid"
-          class="px-4 py-2 text-white transition-all duration-300 bg-blue-400 rounded-md hover:bg-blue-500"
+          [ngClass]="
+            !registerForm.valid
+              ? 'px-4 py-2 text-white transition-all duration-300 bg-gray-400 rounded-md hover:bg-gray-500'
+              : 'px-4 py-2 text-white transition-all duration-300 bg-blue-400 rounded-md hover:bg-blue-500'
+          "
         >
-          {{isLoading ? "Loading..." : "Register"}}
+          {{ isLoading ? "Loading..." : "Register" }}
         </button>
         <button
           routerLink="/users/login"
