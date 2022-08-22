@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../services/hero-service.service';
+import { UsersService } from 'src/app/users/services/users.service';
 import { Hero } from '../interfaces/hero';
 
 @Component({
@@ -11,16 +12,20 @@ export class DashboardComponent implements OnInit {
   heroes: Hero[] = []
   isLoadingFetch: boolean = false
   isLoadingDelete: boolean = false
+  
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private userService: UsersService) { }
 
   ngOnInit(): void {
     this.getHeroes()
   }
 
   getHeroes = () => {
+    let data: any = this.userService.getToken()
+    let obj = JSON.parse(data)
+    
     this.isLoadingFetch = true
-    this.heroService.getAll()
+    this.heroService.getAll(obj.id)
       .subscribe({
         next: (data) => {
           // let buffer = data.slice(0, 6)

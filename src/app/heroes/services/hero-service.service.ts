@@ -13,8 +13,8 @@ export class HeroService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(`${baseUrl}/heroes`)
+  getAll(userId: any): Observable<Hero[]> {
+    return this.http.get<Hero[]>(`${baseUrl}/heroes?userId=${userId}`)
   }
 
   getById(id: number): Observable<Hero> {

@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { UsersService } from 'src/app/users/services/users.service';
 import { Hero } from '../interfaces/hero';
 import { HeroService } from '../services/hero-service.service';
 
@@ -14,12 +15,14 @@ export class AddHeroComponent implements OnInit {
   heroForm = new FormGroup({
     name: new FormControl("", [Validators.required, Validators.minLength(5)]),
     description: new FormControl("", [Validators.required, Validators.minLength(5)]),
+    userId: new FormControl("")
   })
-  hero: Hero = {
-    id: undefined,
-    name: '',
-    description: '',
-  };
+  // hero: Hero = {
+  //   id: undefined,
+  //   userId: undefined,
+  //   name: '',
+  //   description: '',
+  // };
   isLoading: boolean = false;
   heroId: number | undefined;
   title: string = "Add"
@@ -27,11 +30,18 @@ export class AddHeroComponent implements OnInit {
   constructor(
     private location: Location,
     private heroService: HeroService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UsersService
   ) { }
 
   ngOnInit(): void {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
+    let data: any = this.userService.getToken()
+    let obj = JSON.parse(data)
+
+    this.heroForm.patchValue({
+      userId: obj.id
+    })
 
     if (id) {
       this.title = "Edit"

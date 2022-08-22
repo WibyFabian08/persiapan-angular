@@ -2,63 +2,81 @@
   "heroes": [
     {
       "id": 12,
+      "userId": 1,
       "name": "Dr. Bad",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quis enim doloribus fugit neque quibusdam quasi perspiciatis corporis aperiam mollitia non, odio tempora perferendis cupiditate illo. Eius soluta odit natus."
     },
     {
       "id": 13,
+      "userId": 1,
       "name": "Bombasto",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quis enim doloribus fugit neque quibusdam quasi perspiciatis corporis aperiam mollitia non, odio tempora perferendis cupiditate illo. Eius soluta odit natus."
     },
     {
       "id": 14,
+      "userId": 1,
       "name": "Celeritas",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quis enim doloribus fugit neque quibusdam quasi perspiciatis corporis aperiam mollitia non, odio tempora perferendis cupiditate illo. Eius soluta odit natus."
     },
     {
       "id": 15,
+      "userId": 1,
       "name": "Magneta",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quis enim doloribus fugit neque quibusdam quasi perspiciatis corporis aperiam mollitia non, odio tempora perferendis cupiditate illo. Eius soluta odit natus."
     },
     {
       "id": 16,
+      "userId": 1,
       "name": "RubberMan",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quis enim doloribus fugit neque quibusdam quasi perspiciatis corporis aperiam mollitia non, odio tempora perferendis cupiditate illo. Eius soluta odit natus."
     },
     {
       "id": 17,
+      "userId": 1,
       "name": "Dynama",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quis enim doloribus fugit neque quibusdam quasi perspiciatis corporis aperiam mollitia non, odio tempora perferendis cupiditate illo. Eius soluta odit natus."
     },
     {
       "id": 18,
+      "userId": 1,
       "name": "Dr. IQ",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quis enim doloribus fugit neque quibusdam quasi perspiciatis corporis aperiam mollitia non, odio tempora perferendis cupiditate illo. Eius soluta odit natus."
     },
     {
       "id": 19,
+      "userId": 1,
       "name": "Magma",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quis enim doloribus fugit neque quibusdam quasi perspiciatis corporis aperiam mollitia non, odio tempora perferendis cupiditate illo. Eius soluta odit natus."
     },
     {
       "id": 20,
+      "userId": 1,
       "name": "Tornado",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quis enim doloribus fugit neque quibusdam quasi perspiciatis corporis aperiam mollitia non, odio tempora perferendis cupiditate illo. Eius soluta odit natus."
     },
     {
       "name": "Liverpool",
+      "userId": 1,
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id libero eos mollitia tempore veritatis aliquid unde repudiandae minus asperiores blanditiis natus, sapiente sunt rerum voluptate eaque suscipit aperiam beatae atque?",
       "id": 21
     },
     {
       "name": "Lorem edit",
+      "userId": 1,
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos quis enim doloribus fugit neque quibusdam quasi perspiciatis corporis aperiam mollitia non, odio tempora perferendis cupiditate illo. Eius soluta odit natus. Edit",
       "id": 22
     },
     {
       "name": "Wiby Fabian Rianto",
       "description": "hahahaahahaha",
-      "id": 23
+      "id": 23,
+      "userId": 1
+    },
+    {
+      "name": "Persib Bandung",
+      "description": "Persib adalah klub sepak bola Indonesia yang berdiri pada 14 Maret 1933, berbasis di Bandung, Jawa Barat. Persib saat ini bermain di Liga 1 Indonesia. Julukan mereka adalah Maung Bandung dan Pangeran Biru.",
+      "userId": 2,
+      "id": 24
     }
   ],
   "users": [
@@ -67,6 +85,12 @@
       "email": "wibyfabian08@gmail.com",
       "password": "rahasia",
       "id": 1
+    },
+    {
+      "username": "William",
+      "email": "william@gmail.com",
+      "password": "rahasia",
+      "id": 2
     }
   ]
 }

@@ -2,7 +2,8 @@
   <h1 class="my-5 text-2xl text-center">Dashboard Page</h1>
   <ng-container *ngIf="heroes.length > 0">
     <div
-      class="flex flex-row flex-wrap items-center justify-start"
+      class="flex flex-row flex-wrap justify-start"
+      style="min-height: 80vh;"
       *ngIf="!isLoadingFetch"
     >
       <div
@@ -43,6 +44,15 @@
       </div>
     </div>
   </ng-container>
+  <ng-container *ngIf="heroes.length == 0">
+    <div
+      class="flex flex-row flex-wrap justify-center"
+      style="height: 100vh"
+    >
+      <p class="text-center text-xl mt-20">Data Not Found</p>
+    </div>
+  </ng-container>
+
   <ng-container *ngIf="isLoadingFetch">
     <div class="flex items-center justify-center w-full">
       <h5 class="text-center text-gray-800">Loading..</h5>
